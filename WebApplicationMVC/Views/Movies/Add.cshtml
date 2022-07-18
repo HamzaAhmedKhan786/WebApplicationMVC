@@ -7,7 +7,7 @@
                 Add Movie
             </h2>
         </div>
-        <div asp-validation-summary="All"></div>
+       @* <div asp-validation-summary="All" class="text-danger"></div>*@
         <div class="mb-3">
             <label asp-for="Movie_Name"></label>
             <input asp-for="Movie_Name" class="form-control"/>
@@ -16,18 +16,22 @@
         <div class="mb-3">
             <label asp-for="Movie_ReleaseDate"></label>
             <input asp-for="Movie_ReleaseDate" class="form-control"/>
+            <span asp-validation-for="Movie_ReleaseDate" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label asp-for="Movie_Rating"></label>
             <input asp-for="Movie_Rating" class="form-control"/>
+            <span asp-validation-for="Movie_Rating" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label asp-for="Genre"></label>
             <input asp-for="Genre" class="form-control"/>
+            <span asp-validation-for="Genre" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label asp-for="Casts"></label>
             <input asp-for="Casts" class="form-control"/>
+            <span asp-validation-for="Casts" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-primary" style="width:150px">Add Movie</button>
         <a asp-controller="Movies" asp-action="Index" class="btn btn-secondary style="width:150px>
@@ -35,3 +39,9 @@
         </a>
     </div>
 </form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
